@@ -60,7 +60,7 @@ jobs:
         name: EXT4 RW for ${{ github.event.inputs.Firmware }}
         tag_name: ${{ github.run_id }}
         body: |
-          ## RW EXT4 AP ${{ github.event.inputs.Firmware version }}
+          ## RW EXT4 AP ${{ github.event.inputs.Firmware }}
           Flash ${{ github.event.inputs.Firmware version }} AP BL CP CSC according to your country the allow it to boot to android
           Then flash ext4_rw_ap then format data
           If you already in ${{ github.event.inputs.Firmware version }} Just flash flashing ext4_rw_ap and format data
