@@ -57,7 +57,7 @@ jobs:
       with:
         files: |
           ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
-        name: EXT4 RW for ${{ github.event.inputs.Firmware version }}
+        name: EXT4 RW for ${{ github.event.inputs.Firmware }}
         tag_name: ${{ github.run_id }}
         body: |
           ## RW EXT4 AP ${{ github.event.inputs.Firmware version }}
