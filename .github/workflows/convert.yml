@@ -36,7 +36,7 @@ jobs:
         unzip erofs.zip
         rm -r erofs.zip
 
-    - name: Downloading your GSI
+    - name: Downloading given firmware
       run: |
         # Downloading GSI
         wget -O ap.zip ${{ github.event.inputs.GSI }} 
