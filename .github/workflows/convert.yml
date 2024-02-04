@@ -8,12 +8,12 @@ on:
       GSI:
         description: 'Samfw Link For AP'
         required: true
-        default: 'https://02-samfw.cloud/v2/IxJCDiMnLichGy8LEjYUJTRALDwjOx4lFzssIDs2ByAzMUEgOzEUQDMQMCMBOyw/PC8zJCMLHgk8LDsfMicuIB44AjwSJCk8MiUeBh4IOx0zCwUxPBcIMS8nHiYXCAYmNAgVJC8XHzsjGx4hOws0OSMLLg0zCyxAPC8HBjIXIR8PFik/Hi8vCzVABkIeCzwGHgM8FCMkNDEjCxVACTghHzInDQYuFx8rIwAvJCFAMxE8EQY5NRshDjURPho0ES8kNRYhOR44LwsJEQc5NBsjKyEAPg4hAAYsLjgeLDQRHg4yJTMsMiUNKzwAPh8mGzk5FyUzDTUHQQEuByADISxBIwMnOUANQAokMzYCICMXPjkDFzA1CS8pDTsxHhwzQAZCDS8gJg0DIjAeOyE8Fwc7Pw0sLiMeLD4gIxY7MDMsKTwvA0EELzE5ADgxMDMNCzQwHgMjQB4DNBQ4MEEHLwsiOThALyQhOEEmMic+QDhAHgo1OCAmAy8vIy8ILCYNMS8SLwc+HyE4Myk4MT4DIwMNKy4nBz8JETA2HhIUPTU4IEImJy8OPBE0Py4RQQwuGywMDzssHjIsLxsjMCkSMkAzCx4xLw4BFwUGDyUHECM4BkIjAzQ5HiQiMSMDNhQjDRMT'
+        default: ' AP LINK FROM SAMFW'
       
       Firmware:
         description: 'Firmware version'
         required: true
-        default: 'A055FXXU2AWK1'
+        default: 'EG - :A055FXXU2AWK1'
 
 jobs:
   Build:
@@ -32,9 +32,9 @@ jobs:
     - name: Preparing Files
       run: |
         # Downloading and extracting necessary files
-        wget https://sourceforge.net/projects/samsung-galaxy-a01-m01/files/err.zip
-        unzip err.zip
-        rm -r err.zip
+        wget https://sourceforge.net/projects/samsung-galaxy-a01-m01/files/er.zip
+        unzip er.zip
+        rm -r er.zip
 
     - name: Downloading given firmware
       run: |
