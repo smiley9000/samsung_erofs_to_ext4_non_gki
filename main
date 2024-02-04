@@ -1,0 +1,53 @@
+#!/bin/bash
+tar -xvf ./odin/*.tar.md5 -C ./odin 
+rm -rf ./odin/*.tar.md5 > /dev/null 2>&1
+rm -rf lz4 > /dev/null 2>&1
+mkdir lz4
+mv ./odin/super.img.lz4 ./lz4/
+mv ./odin/boot.img.lz4 ./lz4/
+mv ./odin/recovery.img.lz4 ./lz4/
+mv ./odin/vbmeta.img.lz4 ./lz4/
+mv ./odin/vbmeta_system.img.lz4 ./lz4/
+
+echo ""
+echo "-------------------------------"
+echo "  Done"
+echo "-------------------------------"
+echo ""
+
+rm -r odin > /dev/null 2>&1
+
+echo ""
+echo "-------------------------------"
+echo " Decompressing LZ4"
+echo "-------------------------------"
+echo ""
+
+lz4 -d ./lz4/super.img.lz4
+lz4 -d ./lz4/boot.img.lz4
+lz4 -d ./lz4/recovery.img.lz4
+lz4 -d ./lz4/vbmeta.img.lz4
+lz4 -d ./lz4/vbmeta_system.img.lz4
+
+rm -rf ./lz4/*.lz4 > /dev/null 2>&1
+
+rm -rf stat > /dev/null 2>&1
+rm -rf rom > /dev/null 2>&1
+mkdir rom
+mkdir stat
+mv ./lz4/super.img ./rom 
+mv ./lz4/boot.img ./stat
+mv ./lz4/recovery.img ./stat
+mv ./lz4/vbmeta.img ./stat
+mv ./lz4/vbmeta_system.img ./stat
+rm -rf ./lz4 > /dev/null 2>&1
+
+echo ""
+echo "-------------------------------"
+echo "  Done"
+echo "-------------------------------"
+echo ""
+
+./row
+
+
