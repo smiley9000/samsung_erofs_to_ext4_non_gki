@@ -56,7 +56,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
+          last/${{ github.event.inputs.Firmware }}.zip
         name: EXT4 RW for ${{ github.event.inputs.Firmware }}
         tag_name: ${{ github.run_id }}
         body: |
