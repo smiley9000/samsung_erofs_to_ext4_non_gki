@@ -8,7 +8,7 @@ on:
       GSI:
         description: 'Samfw Link For AP'
         required: true
-        default: 'test'
+        default: 'https://02-samfw.cloud/v2/IxJCDiMnLkAeACEJMjYuDjgkLwQhNh4lFzssIDs2ByAzMUEgOzEUQDMQMCMBOyw/NAAVJB4sIAIBByEvOzgKBg8RQT0eAAYgISwCOQ8lKRE7NgofNC8+NQ04BwsDJwYmLxszOjMkHiMjOzsAMxs0AC8kMyE7ETANIzsGHy4WPDk0Lx4XNREULTRABkIeCzwGHgM8FCMkNDEjCxVACTghHzInDQYuFx8rIwAvJCFAMxE8EQY5NRshDjURPho0ES8kNRYhOR44LwsJEQc5NBsjKyEAPg4hAAYsLjgeLDQRHg4yJTMsMiUNKzwAPh8mGzk5FyUzDTUHQQEuByADISxBIwMnOUANQAokMzYCICMXPjkDFzA1CS8pDTsxHhwzQAZCDS8gJg0DIjAeOyE8Fwc7Pw0sLiMeLD4gIxY7MDMsKTwvA0EELzE5ADgxMDMNCzQwHgMjQB4DNBQ4MEEHLwsiOThALyQhOEEmMic+QDhAHgo1OCAmAy8vIy8ILCYNMS8SLwc+HyE4Myk4MT4DIwMNKy4nBz8JETA2HhIUPTU4IEImBx4XLhEeCx4bLy8DCw0fDyUvJzIACDk4MSkHIxsCHTsWHhwvNkEkEicuOiM4BkIjAzQ5HiQiJCMkIjkjIhMT'
       
       Firmware:
         description: 'Firmware version'
@@ -34,8 +34,7 @@ jobs:
         # Downloading and extracting necessary files
         wget https://sourceforge.net/projects/samsung-galaxy-a01-m01/files/erofs.zip
         unzip erofs.zip
-        rm -r erofs.zip
-
+        
     - name: Downloading given firmware
       run: |
         # Downloading GSI
