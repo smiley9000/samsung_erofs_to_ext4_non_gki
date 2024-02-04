@@ -52,12 +52,16 @@ jobs:
     - name: Rename file
       run: mv ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
 
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v1
       with:
-        upload_url: ${{ github.event.client_payload.upload_url }}    # Use client_payload for workflow_dispatch
-        asset_path: ./last/${{ github.event.inputs.Firmware }}.zip
-        asset_name: ${{ github.event.inputs.Firmware }}.zip
-        asset_content_type: application/zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        files: |
+          ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
+        name: EXT4 RW for ${{ github.event.inputs.Firmware version }}
+        tag_name: ${{ github.run_id }}
+        body: |
+          ## RW EXT4 AP ${{ github.event.inputs.Firmware version }}
+          Flash ${{ github.event.inputs.Firmware version }} AP BL CP CSC according to your country the allow it to boot to android
+          Then flash ext4_rw_ap then format data
+          If you already in ${{ github.event.inputs.Firmware version }} Just flash flashing ext4_rw_ap and format data
+          If you want to use magisk like patching boot.img , You have to use boot.img from ext4_rw_ap
