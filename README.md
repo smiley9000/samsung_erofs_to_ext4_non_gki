@@ -2,11 +2,11 @@
 
 Check your device model number and build number
 <br>Copy link of AP file accroding to build number and country </br>
-Then paste it Samfw Link For AP section and add firmware version
-Wait about 10-15min
-You can get Dowloads
+<br>Then paste it Samfw Link For AP section and add firmware version </br>
+<br>Wait about 10-15min </br>
+<br>You can get Dowloads </br>
+<br> </br>
+<br>Read readme after unzipping the file </br>
 
-Read readme after unzipping the file
-
-Vedio Tutorial
+<br>Vedio Tutorial </br>
 
