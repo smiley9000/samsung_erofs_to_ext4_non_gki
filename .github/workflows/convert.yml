@@ -5,7 +5,7 @@ on:
       - main  # Change this to your desired branch
   workflow_dispatch:
     inputs:
-      AP:
+      GSI:
         description: 'Samfw Link For AP'
         required: true
         default: ' AP LINK FROM SAMFW'
@@ -39,7 +39,7 @@ jobs:
     - name: Downloading given firmware
       run: |
         # Downloading Stock rom
-        wget -O ap.zip ${{ github.event.inputs.AP }} 
+        wget -O ap.zip ${{ github.event.inputs.GSI }} 
         chmod +x *
         chmod 755 bin/*
         chmod 755 aik/bin/*
@@ -56,7 +56,7 @@ jobs:
       if: github.event_name == 'workflow_dispatch'
       uses: actions/upload-release-asset@v1
       with:
-        upload_url: ${{ github.event.inputs.upload_url }}
+        upload_url: ${{ github.event.client_payload.upload_url }}
         asset_path: ./last/${{ github.event.inputs.Firmware }}.zip
         asset_name: ${{ github.event.inputs.Firmware }}.zip
         asset_content_type: application/zip
