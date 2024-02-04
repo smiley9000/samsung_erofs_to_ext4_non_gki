@@ -53,21 +53,9 @@ jobs:
       run: mv ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
 
     - name: Upload Release Asset
-      if: github.event_name == 'workflow_dispatch'
       uses: actions/upload-release-asset@v1
       with:
-        upload_url: ${{ github.event.client_payload.upload_url }}
-        asset_path: ./last/${{ github.event.inputs.Firmware }}.zip
-        asset_name: ${{ github.event.inputs.Firmware }}.zip
-        asset_content_type: application/zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: Upload Release Asset
-      if: github.event_name == 'push'
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
+        upload_url: ${{ github.event.client_payload.upload_url }}    # Use client_payload for workflow_dispatch
         asset_path: ./last/${{ github.event.inputs.Firmware }}.zip
         asset_name: ${{ github.event.inputs.Firmware }}.zip
         asset_content_type: application/zip
