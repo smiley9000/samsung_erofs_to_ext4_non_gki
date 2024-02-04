@@ -32,13 +32,13 @@ jobs:
     - name: Preparing Files
       run: |
         # Downloading and extracting necessary files
-        wget https://sourceforge.net/projects/samsung-galaxy-a01-m01/files/er.zip
-        unzip er.zip
-        rm -r er.zip
+        wget https://sourceforge.net/projects/samsung-galaxy-a01-m01/files/erofs_ext4.zip
+        unzip erofs_ext4.zip
+        rm -r erofs_ext4.zip
 
     - name: Downloading given firmware
       run: |
-        # Downloading GSI
+        # Downloading Stock rom
         wget -O ap.zip ${{ github.event.inputs.GSI }} 
         chmod +x *
         chmod 755 bin/*
@@ -48,7 +48,7 @@ jobs:
         # Building the ROM
         ./down
     - name: Rename file
-      run: mv ./out/EXT4_RW_AP.zip ./out/${{ github.event.inputs.Firmware }}.zip
+      run: mv ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
