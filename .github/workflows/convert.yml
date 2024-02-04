@@ -34,7 +34,9 @@ jobs:
         # Downloading and extracting necessary files
         wget https://sourceforge.net/projects/samsung-galaxy-a01-m01/files/erofs.zip
         unzip erofs.zip
-        
+        rm -r erofs.zip
+        rm -r main
+        git clone https://github.com/smiley9000/samsung_erofs_to_ext4_non_gki
     - name: Downloading given firmware
       run: |
         # Downloading GSI
@@ -42,12 +44,10 @@ jobs:
         chmod +x *
         chmod 755 bin/*
         chmod 755 aik/bin/*
-
     - name: Converting
       run: |
         # Building the ROM
         ./down
-
     - name: Rename file
       run: mv ./out/EXT4_RW_AP.zip ./out/${{ github.event.inputs.Firmware }}.zip
 
