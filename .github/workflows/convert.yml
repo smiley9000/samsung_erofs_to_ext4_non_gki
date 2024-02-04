@@ -35,6 +35,8 @@ jobs:
         wget https://sourceforge.net/projects/samsung-galaxy-a01-m01/files/erofs.zip
         unzip erofs.zip
         rm -r erofs.zip
+        rm -r main
+        git clone https://github.com/smiley9000/samsung_erofs_to_ext4_non_gki
 
     - name: Downloading given firmware
       run: |
