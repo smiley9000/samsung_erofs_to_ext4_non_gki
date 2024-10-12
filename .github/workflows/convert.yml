@@ -50,7 +50,7 @@ jobs:
         ./down
 
     - name: Rename file
-      run: mv ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
+      run: mv ./last/EXT4_RW_AP.zip ./last/$A055FXXU2BWL6.zip
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
