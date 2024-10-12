@@ -1,0 +1,59 @@
+name: Samsung EROFS to EXT4
+on:
+  push:
+    branches:
+      - main  # Change this to your desired branch
+  workflow_dispatch:
+    inputs:
+      GSI:
+        description: 'Samfw Link For AP'
+        required: true
+        default: ' AP LINK FROM SAMFW'
+      
+      Firmware:
+        description: 'Firmware version'
+        required: true
+        default: 'EG - :A055FXXU2AWK1'
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y cpio bc simg2img lz4 git device-tree-compiler lz4 xz-utils zlib1g-dev openjdk-17-jdk gcc g++ python3 python-is-python3 p7zip-full android-sdk-libsparse-utils erofs-utils
+        sudo apt install -y zip xz-utils unzip p7zip-full wget
+        
+    - name: Preparing Files
+      run: |
+        # Downloading and extracting necessary files
+        wget https://sourceforge.net/projects/samsung-galaxy-a01-m01/files/erofs_ext4.zip
+        unzip erofs_ext4.zip
+        rm -r erofs_ext4.zip
+
+    - name: Downloading given firmware
+      run: |
+        # Downloading Stock rom
+        wget -O ap.zip ${{ github.event.inputs.GSI }} 
+        chmod +x *
+        chmod 755 bin/*
+        chmod 755 aik/bin/*
+        
+    - name: Converting
+      run: |
+        # Building the ROM
+        ./down
+
+    - name: Rename file
+      run: mv ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: EXT4_RW_AP
+        path: ./last/${{ github.event.inputs.Firmware }}.zip
