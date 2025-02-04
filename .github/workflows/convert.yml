@@ -53,7 +53,7 @@ jobs:
       run: mv ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: EXT4_RW_AP
         path: ./last/${{ github.event.inputs.Firmware }}.zip
